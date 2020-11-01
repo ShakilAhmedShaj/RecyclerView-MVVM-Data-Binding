@@ -8,7 +8,7 @@ import retrofit2.http.GET
 
 interface MoviesApi {
 
-    @GET("movies")
+    @GET("movies.json")
     suspend fun getMovies(): Response<List<Movie>>
 
 
@@ -16,7 +16,7 @@ interface MoviesApi {
         operator fun invoke(): MoviesApi {
             return Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://api.simplifiedcoding.in/course-apis/recyclerview/")
+                .baseUrl("https://raw.githubusercontent.com/ShakilAhmedShaj/static_json_apis/master/")
                 .build()
                 .create(MoviesApi::class.java)
         }
